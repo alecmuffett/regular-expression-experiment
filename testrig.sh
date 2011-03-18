@@ -2,8 +2,8 @@
 exec 2>&1
 set -x
 
-#input=/etc/hosts
-input=/var/tmp/sample-apache-logfile.txt
+input=/etc/hosts
+#input=/var/tmp/sample-apache-logfile.txt
 
 : get the size of the input file for reference
 ls -l $input

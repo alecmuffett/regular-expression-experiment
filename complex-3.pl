@@ -10,7 +10,7 @@ $pat = qr!(
 
 while (<>) {
     while (s/$pat/-/o) {
-	print "$1\n"; # BUG: WILL PRINT "1.1.1.100" for 1.1.1.10000
+	print "$1\n";
     }
 }
 
