@@ -10,7 +10,7 @@ $pat = qr!(
 
 while (<>) {
     while (s/$pat/-/o) {
-	print "$1\n" if (($1 < 256) and ($2 < 256) and ($3 < 256) and ($4 < 256));
+	print "$1\n" if (($2 < 256) and ($3 < 256) and ($4 < 256) and ($5 < 256));
     }
 }
 
