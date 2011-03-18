@@ -2,8 +2,8 @@
 exec 2>&1
 set -x
 
-input=/etc/hosts
-#input=/var/tmp/sample-apache-logfile.txt
+#input=/etc/hosts
+input=/var/tmp/sample-apache-logfile.txt
 
 : get the size of the input file for reference
 ls -l $input
@@ -12,7 +12,7 @@ ls -l $input
 time cat $input > /dev/null
 
 : run the scripts
-for testscript in simple*pl three*pl complex*.pl hybrid*.pl
+for testscript in simple*pl three*pl complex*.pl hybrid*.pl # *.pl,bug # uncomment to include
 do
     : storing a reference copy of the output for $testscript
     $testscript $input > saved-$testscript-output.dat~
