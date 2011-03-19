@@ -1,0 +1,70 @@
++ input=/var/tmp/sample-apache-logfile.txt
++ : get the size of the input file for reference
++ ls -l /var/tmp/sample-apache-logfile.txt
+-rw-------  1 alecm  wheel  2147121882 18 Mar 13:31 /var/tmp/sample-apache-logfile.txt
++ : get a sense of how long the raw read I/O takes / preload buffercache
++ cat /var/tmp/sample-apache-logfile.txt
+
+real	0m0.968s
+user	0m0.012s
+sys	0m0.955s
++ : run the scripts
++ for testscript in simple-3.pl 'regexp-common*pl'
++ : storing a reference copy of the output for simple-3.pl
++ simple-3.pl /var/tmp/sample-apache-logfile.txt
++ : start time trial for simple-3.pl
++ date
+Sat 19 Mar 2011 12:11:03 GMT
++ simple-3.pl /var/tmp/sample-apache-logfile.txt
+
+real	2m8.040s
+user	2m5.304s
+sys	0m2.712s
++ simple-3.pl /var/tmp/sample-apache-logfile.txt
+
+real	2m7.984s
+user	2m5.285s
+sys	0m2.686s
++ simple-3.pl /var/tmp/sample-apache-logfile.txt
+
+real	2m8.014s
+user	2m5.306s
+sys	0m2.704s
++ : finish time trial for simple-3.pl
++ date
+Sat 19 Mar 2011 12:17:27 GMT
++ :
++ : ------------------------------------------------------------------
++ : ------------------------------------------------------------------
++ : ------------------------------------------------------------------
++ :
++ for testscript in simple-3.pl 'regexp-common*pl'
++ : storing a reference copy of the output for regexp-common-1.pl
++ regexp-common-1.pl /var/tmp/sample-apache-logfile.txt
++ : start time trial for regexp-common-1.pl
++ date
+Sat 19 Mar 2011 12:20:08 GMT
++ regexp-common-1.pl /var/tmp/sample-apache-logfile.txt
+
+real	2m35.002s
+user	2m32.233s
+sys	0m2.754s
++ regexp-common-1.pl /var/tmp/sample-apache-logfile.txt
+
+real	2m34.942s
+user	2m32.203s
+sys	0m2.738s
++ regexp-common-1.pl /var/tmp/sample-apache-logfile.txt
+
+real	2m34.999s
+user	2m32.235s
+sys	0m2.749s
++ : finish time trial for regexp-common-1.pl
++ date
+Sat 19 Mar 2011 12:27:53 GMT
++ :
++ : ------------------------------------------------------------------
++ : ------------------------------------------------------------------
++ : ------------------------------------------------------------------
++ :
++ : done.
