@@ -12,7 +12,7 @@ ls -l $input
 time cat $input > /dev/null
 
 : run the scripts
-for testscript in simple-3.pl regexp-common*pl
+for testscript in simple-3.pl perlgeek*pl
 do
     : storing a reference copy of the output for $testscript
     $testscript $input > saved-$testscript-output.dat~
