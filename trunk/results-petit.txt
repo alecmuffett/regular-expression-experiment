@@ -1,0 +1,70 @@
++ input=/var/tmp/sample-apache-logfile.txt
++ : get the size of the input file for reference
++ ls -l /var/tmp/sample-apache-logfile.txt
+-rw-------  1 alecm  wheel  2147121882 18 Mar 13:31 /var/tmp/sample-apache-logfile.txt
++ : get a sense of how long the raw read I/O takes / preload buffercache
++ cat /var/tmp/sample-apache-logfile.txt
+
+real	0m1.307s
+user	0m0.012s
+sys	0m0.937s
++ : run the scripts
++ for testscript in simple-3.pl petit-1.pl
++ : storing a reference copy of the output for simple-3.pl
++ simple-3.pl /var/tmp/sample-apache-logfile.txt
++ : start time trial for simple-3.pl
++ date
+Sat 19 Mar 2011 10:33:51 GMT
++ simple-3.pl /var/tmp/sample-apache-logfile.txt
+
+real	2m8.271s
+user	2m5.288s
+sys	0m2.702s
++ simple-3.pl /var/tmp/sample-apache-logfile.txt
+
+real	2m8.941s
+user	2m5.263s
+sys	0m2.697s
++ simple-3.pl /var/tmp/sample-apache-logfile.txt
+
+real	2m8.432s
+user	2m5.277s
+sys	0m2.709s
++ : finish time trial for simple-3.pl
++ date
+Sat 19 Mar 2011 10:40:17 GMT
++ :
++ : ------------------------------------------------------------------
++ : ------------------------------------------------------------------
++ : ------------------------------------------------------------------
++ :
++ for testscript in simple-3.pl petit-1.pl
++ : storing a reference copy of the output for petit-1.pl
++ petit-1.pl /var/tmp/sample-apache-logfile.txt
++ : start time trial for petit-1.pl
++ date
+Sat 19 Mar 2011 10:45:28 GMT
++ petit-1.pl /var/tmp/sample-apache-logfile.txt
+
+real	5m2.360s
+user	4m59.066s
+sys	0m2.841s
++ petit-1.pl /var/tmp/sample-apache-logfile.txt
+
+real	5m1.968s
+user	4m59.134s
+sys	0m2.815s
++ petit-1.pl /var/tmp/sample-apache-logfile.txt
+
+real	5m2.028s
+user	4m59.120s
+sys	0m2.868s
++ : finish time trial for petit-1.pl
++ date
+Sat 19 Mar 2011 11:00:34 GMT
++ :
++ : ------------------------------------------------------------------
++ : ------------------------------------------------------------------
++ : ------------------------------------------------------------------
++ :
++ : done.
