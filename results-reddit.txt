@@ -1,0 +1,99 @@
++ input=/var/tmp/sample-apache-logfile.txt
++ : get the size of the input file for reference
++ ls -l /var/tmp/sample-apache-logfile.txt
+-rw-------  1 alecm  wheel  2147121882 18 Mar 13:31 /var/tmp/sample-apache-logfile.txt
++ : get a sense of how long the raw read I/O takes / preload buffercache
++ cat /var/tmp/sample-apache-logfile.txt
+
+real	0m56.849s
+user	0m0.032s
+sys	0m1.992s
++ : run the scripts
++ for testscript in simple-3.pl 'frip*.pl' 'perlgeek*pl'
++ : storing a reference copy of the output for simple-3.pl
++ simple-3.pl /var/tmp/sample-apache-logfile.txt
++ : start time trial for simple-3.pl
++ date
+Sat 19 Mar 2011 19:35:11 GMT
++ simple-3.pl /var/tmp/sample-apache-logfile.txt
+
+real	2m7.979s
+user	2m5.301s
+sys	0m2.660s
++ simple-3.pl /var/tmp/sample-apache-logfile.txt
+
+real	2m7.921s
+user	2m5.270s
+sys	0m2.651s
++ simple-3.pl /var/tmp/sample-apache-logfile.txt
+
+real	2m7.929s
+user	2m5.271s
+sys	0m2.658s
++ : finish time trial for simple-3.pl
++ date
+Sat 19 Mar 2011 19:41:35 GMT
++ :
++ : ------------------------------------------------------------------
++ : ------------------------------------------------------------------
++ : ------------------------------------------------------------------
++ :
++ for testscript in simple-3.pl 'frip*.pl' 'perlgeek*pl'
++ : storing a reference copy of the output for fripletister-1.pl
++ fripletister-1.pl /var/tmp/sample-apache-logfile.txt
++ : start time trial for fripletister-1.pl
++ date
+Sat 19 Mar 2011 19:44:04 GMT
++ fripletister-1.pl /var/tmp/sample-apache-logfile.txt
+
+real	2m23.796s
+user	2m21.095s
+sys	0m2.676s
++ fripletister-1.pl /var/tmp/sample-apache-logfile.txt
+
+real	2m24.279s
+user	2m21.291s
+sys	0m2.753s
++ fripletister-1.pl /var/tmp/sample-apache-logfile.txt
+
+real	2m24.107s
+user	2m21.300s
+sys	0m2.789s
++ : finish time trial for fripletister-1.pl
++ date
+Sat 19 Mar 2011 19:51:17 GMT
++ :
++ : ------------------------------------------------------------------
++ : ------------------------------------------------------------------
++ : ------------------------------------------------------------------
++ :
++ for testscript in simple-3.pl 'frip*.pl' 'perlgeek*pl'
++ : storing a reference copy of the output for perlgeek-1.pl
++ perlgeek-1.pl /var/tmp/sample-apache-logfile.txt
++ : start time trial for perlgeek-1.pl
++ date
+Sat 19 Mar 2011 20:16:32 GMT
++ perlgeek-1.pl /var/tmp/sample-apache-logfile.txt
+
+real	24m48.592s
+user	24m44.766s
+sys	0m3.309s
++ perlgeek-1.pl /var/tmp/sample-apache-logfile.txt
+
+real	24m48.357s
+user	24m44.978s
+sys	0m3.344s
++ perlgeek-1.pl /var/tmp/sample-apache-logfile.txt
+
+real	24m48.450s
+user	24m45.019s
+sys	0m3.407s
++ : finish time trial for perlgeek-1.pl
++ date
+Sat 19 Mar 2011 21:30:57 GMT
++ :
++ : ------------------------------------------------------------------
++ : ------------------------------------------------------------------
++ : ------------------------------------------------------------------
++ :
++ : done.
