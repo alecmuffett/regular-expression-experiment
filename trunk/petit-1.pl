@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# match digits
+# re by Mark Pettit, 2011
 $pat = qr/(
 (?:(?<!\d)|\A)
 (?:(?:\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.){3}
